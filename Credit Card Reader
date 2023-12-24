@@ -1,0 +1,73 @@
+x = input("enter card number for here to see what kind of card it is, and to check
+whether or not it is a valid card:")
+firstDigit = x[0]
+firstTwoDigits = x[0:2]
+xytotal = 0
+if len(x) == 15:
+    print("American Express")
+    yur = int(x[13])*2, int(x[11])*2, int(x[9])*2, int(x[7])*2, int(x[5])*2,
+int(x[3])*2, int(x[1])*2
+    total = sum(yur)
+    xyur = int(x[14]), int(x[12]), int(x[10]), int(x[8]), int(x[6]), int(x[4]),
+int(x[2]), int(x[0])
+    realTotal = sum(xyur)
+    xtotal = total + realTotal
+    xytotal = xtotal%10
+    if xytotal == 0:
+        print("valid card")
+    else:
+        print("invalid")
+elif len(x) == 16 or firstTwoDigits in ["51","52","53","54","55"]:
+    print("MasterCard")
+    yur = int(x[14])*2, int(x[12])*2, int(x[10])*2, int(x[8])*2, int(x[6])*2,
+int(x[4])*2, int(x[2])*2, int(x[0])*2
+    total = sum(yur)
+    xyur = int(x[15]), int(x[13]), int(x[11]), int(x[9]), int(x[7]), int(x[5]),
+int(x[3]), int(x[1])
+    realTotal = sum(xyur)
+    xtotal = total + realTotal
+    xytotal = xtotal%10
+    if xytotal == 0:
+        print("Valid card")
+    else:
+        print("Invalid")
+elif len(x) == 16 and firstDigit in ["4"]:
+    print("Visa")
+    yur = int(x[14])*2, int(x[12])*2, int(x[10])*2, int(x[8])*2, int(x[6])*2,
+int(x[4])*2, int(x[2])*2, int(x[0])*2
+    total = sum(yur)
+    xyur = int(x[15]), int(x[13]), int(x[11]), int(x[9]), int(x[7]), int( x[5]),
+int(x[3]), int(x[1])
+realTotal = sum(xyur)
+xtotal = total + realTotal
+    xytotal = xtotal%10
+    if xytotal == 0:
+        print("valid card")
+    else:
+        print("invalid")
+elif len(x) == 13 and firstDigit in ["4"]:
+    print("Visa")
+    yur13 = int(x[11])*2, int(x[9])*2, int(x[7])*2, int(x[5])*2, int(x[3])*2,
+int(x[1])*2
+    total13 = sum(yur13)
+    xyur13 = int(x[12]), int(x[10]), int(x[8]), int(x[6]), int(x[4]), int(x[2]),
+int(x[0])
+    realTotal13 = sum(xyur13)
+    xtotal13 = total13 + realTotal13
+    xytotal13 = xtotal13%10
+    if xytotal13 == 0:
+        print("valid card")
+    else:
+        print("Invalid")
+#ask Rosen about if I should put "and", or, "or" for the mastercard if function
+    #American Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and
+Visa uses 13- and 16-digit numbers.
+    ## All American Express numbers start with 34 or 37; most MasterCard numbers
+start with 51, 52, 53, 54, or 55 (they also have some other potential starting
+numbers which we won’t concern ourselves with for this problem); and all Visa
+numbers start with 4.
+    #mastercard test card: 5105105105105100
+    # American express: 371449635398431
+        #visa:4012888888881881
+# mastercard 5555555555554444
+# visa 13 - 4222222222222
